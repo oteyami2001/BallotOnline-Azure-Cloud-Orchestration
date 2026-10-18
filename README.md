@@ -102,6 +102,7 @@ The project was implemented through several cloud engineering phases:
 | 04 | [Load balancer and health probe](docs/04-load-balancer-health-probe.md) | — |
 | 05 | [Azure App Service (PaaS)](docs/05-azure-app-service.md) | [`deploy-app-service.sh`](infrastructure/scripts/deploy-app-service.sh) |
 | 06 | [Git continuous deployment](docs/06-continuous-deployment.md) | — |
+| 07 | [Monitoring and autoscaling](docs/07-monitoring-autoscaling.md) | [Monitoring CLI examples](infrastructure/monitoring/) |
 
 ---
 
