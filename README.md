@@ -105,6 +105,7 @@ The project was implemented through several cloud engineering phases:
 | 07 | [Monitoring and autoscaling](docs/07-monitoring-autoscaling.md) | [Monitoring CLI examples](infrastructure/monitoring/) |
 | 08 | [Troubleshooting runbook](docs/08-troubleshooting-runbook.md) | — |
 | 09 | [Operational excellence](docs/09-operational-excellence.md) | — |
+| 10 | [Security and governance](docs/10-security-governance.md) | [`security/`](security/) |
 
 ---
 
