@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "value": "BOWebServer"
+    },
+    "location": {
+      "value": "westus3"
+    },
+    "vmSize": {
+      "value": "Standard_D2s_v3"
+    },
+    "adminUsername": {
+      "value": "azureuser"
+    },
+    "sshPublicKey": {
+      "value": "REPLACE_WITH_YOUR_SSH_PUBLIC_KEY"
+    },
+    "networkInterfaceId": {
+      "value": "REPLACE_WITH_YOUR_NETWORK_INTERFACE_RESOURCE_ID"
+    }
+  }
+}
