@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="48" viewBox="0 0 220 48" role="img" aria-label="BallotOnline">
+  <rect x="2" y="8" width="32" height="32" rx="7" fill="#0b5cad"/>
+  <rect x="9" y="4" width="18" height="14" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="2"/>
+  <path d="M12.5 11.5l3.5 3.5 6.5-7" fill="none" stroke="#1a9e5c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="8" y="22" width="20" height="3" rx="1.5" fill="#7fb8f0"/>
+  <text x="44" y="32" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#0b2545">Ballot<tspan fill="#0b5cad">Online</tspan></text>
+</svg>
