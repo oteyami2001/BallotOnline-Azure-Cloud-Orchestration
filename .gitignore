@@ -1,0 +1,8 @@
+# Real ARM parameter values (copy from parameters.example.json)
+infrastructure/arm/parameters.json
+
+# Keys and local secrets
+*.pem
+*.key
+id_rsa*
+.env
