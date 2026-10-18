@@ -92,6 +92,12 @@ The project was implemented through several cloud engineering phases:
 13. Azure monitoring and autoscaling
 14. AWS vs. Azure architecture comparison
 
+### Implementation Guides
+
+| Stage | Guide | Automation |
+|---|---|---|
+| 01 | [Azure VM and Nginx deployment](docs/01-azure-vm-deployment.md) | [`install-nginx.sh`](infrastructure/scripts/install-nginx.sh) |
+
 ---
 
 ## High Availability
