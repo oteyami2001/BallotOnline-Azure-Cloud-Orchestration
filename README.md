@@ -97,6 +97,7 @@ The project was implemented through several cloud engineering phases:
 | Stage | Guide | Automation |
 |---|---|---|
 | 01 | [Azure VM and Nginx deployment](docs/01-azure-vm-deployment.md) | [`install-nginx.sh`](infrastructure/scripts/install-nginx.sh) |
+| 02 | [Azure Compute Gallery and VM image](docs/02-azure-vm-image.md) | [ARM template](infrastructure/arm/vm-template.json) |
 
 ---
 
