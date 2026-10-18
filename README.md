@@ -101,6 +101,7 @@ The project was implemented through several cloud engineering phases:
 | 03 | [VM Scale Set and load balancer](docs/03-vm-scale-set-load-balancer.md) | [VMSS ARM template](infrastructure/arm/vmss-template.json), [`vmss-user-data.sh`](infrastructure/scripts/vmss-user-data.sh) |
 | 04 | [Load balancer and health probe](docs/04-load-balancer-health-probe.md) | — |
 | 05 | [Azure App Service (PaaS)](docs/05-azure-app-service.md) | [`deploy-app-service.sh`](infrastructure/scripts/deploy-app-service.sh) |
+| 06 | [Git continuous deployment](docs/06-continuous-deployment.md) | — |
 
 ---
 
