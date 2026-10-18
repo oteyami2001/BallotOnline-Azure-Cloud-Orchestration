@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="840" viewBox="0 0 1200 840" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-labelledby="title desc">
+  <title id="title">BallotOnline Azure Cloud Architecture</title>
+  <desc id="desc">IaaS path: Azure Load Balancer in front of a two-instance VM Scale Set of Ubuntu and Nginx VMs, built from a custom image in Azure Compute Gallery and watched by Azure Monitor. PaaS path: developer uses Azure CLI and Git push to deploy to Azure App Service.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3b4a5a"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0078d4"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#107c41"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="840" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="600" y="38" text-anchor="middle" font-size="24" font-weight="700" fill="#1b2633">BallotOnline – Azure Cloud Architecture</text>
+
+  <!-- Users -->
+  <rect x="470" y="58" width="260" height="58" rx="29" fill="#1b2633"/>
+  <text x="600" y="83" text-anchor="middle" font-size="16" font-weight="600" fill="#ffffff">Internet Users</text>
+  <text x="600" y="103" text-anchor="middle" font-size="12.5" fill="#c9d4e0">BallotOnline website visitors</text>
+
+  <!-- ================= IaaS panel ================= -->
+  <rect x="30" y="160" width="600" height="630" rx="14" fill="#f2f8fd" stroke="#0078d4" stroke-width="2"/>
+  <text x="54" y="192" font-size="15" font-weight="700" fill="#0078d4" letter-spacing="1">IaaS PATH</text>
+  <text x="146" y="192" font-size="13" fill="#4a5a6a">High availability on VMs</text>
+
+  <!-- Load Balancer -->
+  <rect x="150" y="210" width="360" height="68" rx="10" fill="#ffffff" stroke="#0078d4" stroke-width="2"/>
+  <text x="330" y="239" text-anchor="middle" font-size="17" font-weight="700" fill="#1b2633">Azure Load Balancer</text>
+  <text x="330" y="262" text-anchor="middle" font-size="12.5" fill="#4a5a6a">CCS670LB · HTTP health probe on port 80</text>
+
+  <!-- VM Scale Set -->
+  <rect x="60" y="322" width="540" height="206" rx="12" fill="#e3effa" stroke="#0078d4" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <rect x="90" y="342" width="220" height="134" rx="10" fill="#ffffff" stroke="#8aa4bd" stroke-width="1.5"/>
+  <text x="200" y="368" text-anchor="middle" font-size="15" font-weight="700" fill="#1b2633">VM Instance 1</text>
+  <text x="200" y="394" text-anchor="middle" font-size="13" fill="#3b4a5a">Ubuntu Linux</text>
+  <text x="200" y="416" text-anchor="middle" font-size="13" fill="#3b4a5a">Nginx web server</text>
+  <text x="200" y="438" text-anchor="middle" font-size="13" fill="#3b4a5a">BallotOnline website</text>
+  <rect x="350" y="342" width="220" height="134" rx="10" fill="#ffffff" stroke="#8aa4bd" stroke-width="1.5"/>
+  <text x="460" y="368" text-anchor="middle" font-size="15" font-weight="700" fill="#1b2633">VM Instance 2</text>
+  <text x="460" y="394" text-anchor="middle" font-size="13" fill="#3b4a5a">Ubuntu Linux</text>
+  <text x="460" y="416" text-anchor="middle" font-size="13" fill="#3b4a5a">Nginx web server</text>
+  <text x="460" y="438" text-anchor="middle" font-size="13" fill="#3b4a5a">BallotOnline website</text>
+  <text x="330" y="508" text-anchor="middle" font-size="15" font-weight="700" fill="#0078d4">Azure Virtual Machine Scale Set · 2 instances</text>
+
+  <!-- LB to VMs -->
+  <line x1="270" y1="278" x2="210" y2="340" stroke="#0078d4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <line x1="390" y1="278" x2="450" y2="340" stroke="#0078d4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="330" y="312" text-anchor="middle" font-size="12" fill="#0078d4">HTTP :80</text>
+
+  <!-- Custom image + gallery -->
+  <rect x="60" y="590" width="260" height="66" rx="10" fill="#ffffff" stroke="#0078d4" stroke-width="2"/>
+  <text x="190" y="617" text-anchor="middle" font-size="15.5" font-weight="700" fill="#1b2633">Custom VM Image</text>
+  <text x="190" y="640" text-anchor="middle" font-size="12.5" fill="#4a5a6a">Ubuntu + Nginx + website</text>
+  <rect x="60" y="700" width="260" height="66" rx="10" fill="#ffffff" stroke="#0078d4" stroke-width="2"/>
+  <text x="190" y="727" text-anchor="middle" font-size="15.5" font-weight="700" fill="#1b2633">Azure Compute Gallery</text>
+  <text x="190" y="750" text-anchor="middle" font-size="12.5" fill="#4a5a6a">Captured from the original VM</text>
+  <line x1="190" y1="700" x2="190" y2="659" stroke="#0078d4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <line x1="190" y1="590" x2="190" y2="531" stroke="#0078d4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="200" y="566" font-size="12" fill="#0078d4">instances built from image</text>
+
+  <!-- Monitor -->
+  <rect x="370" y="630" width="230" height="86" rx="10" fill="#ffffff" stroke="#5c2d91" stroke-width="2"/>
+  <text x="485" y="662" text-anchor="middle" font-size="15.5" font-weight="700" fill="#1b2633">Azure Monitor</text>
+  <text x="485" y="685" text-anchor="middle" font-size="12.5" fill="#4a5a6a">Health · metrics · autoscale</text>
+  <line x1="485" y1="528" x2="485" y2="627" stroke="#5c2d91" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+  <text x="495" y="582" font-size="12" fill="#5c2d91">health &amp; metrics</text>
+
+  <!-- ================= PaaS panel ================= -->
+  <rect x="660" y="160" width="510" height="630" rx="14" fill="#f2faf5" stroke="#107c41" stroke-width="2"/>
+  <text x="684" y="192" font-size="15" font-weight="700" fill="#107c41" letter-spacing="1">PaaS PATH</text>
+  <text x="780" y="192" font-size="13" fill="#4a5a6a">Managed hosting</text>
+
+  <!-- App Service -->
+  <rect x="710" y="210" width="410" height="156" rx="10" fill="#ffffff" stroke="#107c41" stroke-width="2"/>
+  <text x="915" y="240" text-anchor="middle" font-size="17" font-weight="700" fill="#1b2633">Azure App Service</text>
+  <line x1="740" y1="254" x2="1090" y2="254" stroke="#d3e6da" stroke-width="1"/>
+  <text x="915" y="278" text-anchor="middle" font-size="13" fill="#3b4a5a">PHP runtime</text>
+  <text x="915" y="300" text-anchor="middle" font-size="13" fill="#3b4a5a">Git-based continuous deployment</text>
+  <text x="915" y="322" text-anchor="middle" font-size="13" fill="#3b4a5a">Autoscaling</text>
+  <text x="915" y="344" text-anchor="middle" font-size="13" fill="#3b4a5a">Built-in monitoring</text>
+
+  <!-- Git push -->
+  <rect x="760" y="430" width="310" height="66" rx="10" fill="#ffffff" stroke="#107c41" stroke-width="2"/>
+  <text x="915" y="457" text-anchor="middle" font-size="15.5" font-weight="700" fill="#1b2633">Git Push</text>
+  <text x="915" y="480" text-anchor="middle" font-size="12.5" fill="#4a5a6a">Local Git deployment remote</text>
+  <line x1="915" y1="430" x2="915" y2="369" stroke="#107c41" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="925" y="404" font-size="12" fill="#107c41">deploys on every push</text>
+
+  <!-- Azure CLI -->
+  <rect x="760" y="560" width="310" height="66" rx="10" fill="#ffffff" stroke="#107c41" stroke-width="2"/>
+  <text x="915" y="587" text-anchor="middle" font-size="15.5" font-weight="700" fill="#1b2633">Azure CLI</text>
+  <text x="915" y="610" text-anchor="middle" font-size="12.5" fill="#4a5a6a">Creates the plan, web app and deploy user</text>
+  <line x1="915" y1="560" x2="915" y2="499" stroke="#107c41" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- Developer -->
+  <rect x="760" y="690" width="310" height="66" rx="33" fill="#1b2633"/>
+  <text x="915" y="718" text-anchor="middle" font-size="15.5" font-weight="700" fill="#ffffff">Developer</text>
+  <text x="915" y="740" text-anchor="middle" font-size="12.5" fill="#c9d4e0">BallotOnline PHP source code</text>
+  <line x1="915" y1="690" x2="915" y2="629" stroke="#107c41" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- Users to both paths -->
+  <polyline points="470,87 330,87 330,207" fill="none" stroke="#3b4a5a" stroke-width="2" marker-end="url(#arrow)"/>
+  <polyline points="730,87 915,87 915,207" fill="none" stroke="#3b4a5a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="340" y="140" font-size="12" fill="#3b4a5a">HTTP</text>
+  <text x="925" y="140" font-size="12" fill="#3b4a5a">HTTPS</text>
+
+  <!-- Footer -->
+  <text x="600" y="820" text-anchor="middle" font-size="12" fill="#6b7a8a">Solid arrows: traffic and deployment flow · Dashed arrow: monitoring</text>
+</svg>
