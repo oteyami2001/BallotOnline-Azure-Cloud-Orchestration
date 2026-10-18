@@ -1,0 +1,126 @@
+name: Repository Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate Portfolio Repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate JSON files
+        shell: bash
+        run: |
+          echo "Validating JSON files..."
+          mapfile -t json_files < <(git ls-files '*.json')
+
+          if [ "${#json_files[@]}" -eq 0 ]; then
+            echo "No JSON files found."
+            exit 0
+          fi
+
+          for file in "${json_files[@]}"; do
+            echo "Checking $file"
+            python3 -m json.tool "$file" > /dev/null
+          done
+
+          echo "JSON validation completed."
+
+      - name: Validate shell scripts
+        shell: bash
+        run: |
+          echo "Validating shell scripts..."
+          mapfile -t shell_files < <(git ls-files '*.sh')
+
+          if [ "${#shell_files[@]}" -eq 0 ]; then
+            echo "No shell scripts found."
+            exit 0
+          fi
+
+          for file in "${shell_files[@]}"; do
+            echo "Checking $file"
+            bash -n "$file"
+          done
+
+          # ShellCheck is preinstalled on GitHub-hosted Ubuntu runners.
+          shellcheck "${shell_files[@]}"
+
+          echo "Shell validation completed."
+
+      - name: Check for private key material
+        shell: bash
+        run: |
+          echo "Scanning tracked files for private-key headers..."
+
+          if git grep -n -E 'BEGIN (RSA |EC |DSA |OPENSSH )?PRIVATE KEY' \
+            -- ':!*.md' ':!.github/workflows/validate.yml'
+          then
+            echo "Potential private key detected."
+            exit 1
+          fi
+
+          echo "No private-key headers detected."
+
+      - name: Check Markdown links
+        shell: bash
+        run: |
+          echo "Checking relative links in Markdown files..."
+          python3 - <<'EOF'
+          import os, re, subprocess, sys
+
+          files = subprocess.run(["git", "ls-files", "*.md"],
+                                 capture_output=True, text=True, check=True).stdout.split()
+          broken = []
+          for md in files:
+              text = open(md, encoding="utf-8").read()
+              for target in re.findall(r"\]\(([^)\s]+)\)", text):
+                  path = target.split("#")[0]
+                  if not path or re.match(r"^[a-z]+:", path):
+                      continue
+                  if not os.path.exists(os.path.normpath(os.path.join(os.path.dirname(md), path))):
+                      broken.append(f"{md}: {target}")
+
+          if broken:
+              print("Broken links:")
+              print("\n".join(broken))
+              sys.exit(1)
+          print(f"All relative links in {len(files)} Markdown files resolve.")
+          EOF
+
+      - name: Verify required portfolio files
+        shell: bash
+        run: |
+          required_files=(
+            "README.md"
+            ".gitignore"
+            "architecture/README.md"
+            "docs/08-troubleshooting-runbook.md"
+            "docs/10-security-governance.md"
+            "docs/11-aws-vs-azure.md"
+            "docs/adr/ADR-001-iaas-vs-paas.md"
+            "docs/adr/ADR-002-load-balanced-vmss.md"
+          )
+
+          for file in "${required_files[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "Missing required file: $file"
+              exit 1
+            fi
+          done
+
+          echo "Required portfolio files are present."
+
+      - name: Validation complete
+        run: echo "BallotOnline Azure portfolio validation passed."
