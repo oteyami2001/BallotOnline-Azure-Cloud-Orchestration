@@ -101,6 +101,10 @@ The BallotOnline website files were deployed to:
 
 Nginx was configured to use this directory as the website document root.
 
+The configuration is in
+[`infrastructure/nginx/nginx.conf`](../infrastructure/nginx/nginx.conf),
+and a recreated version of the site is in [`website/`](../website/).
+
 ```text
 Website Archive
       |
