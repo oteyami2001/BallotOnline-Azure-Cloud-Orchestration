@@ -11,6 +11,8 @@ high availability, load balancing, reusable VM images, Infrastructure
 as Code, Git deployment, monitoring, security, troubleshooting, and
 multi-cloud architecture analysis**.
 
+**Live demo site:** [oteyami2001.github.io/BallotOnline-Azure-Cloud-Orchestration](https://oteyami2001.github.io/BallotOnline-Azure-Cloud-Orchestration/)
+
 ---
 
 ## Architecture
@@ -164,7 +166,7 @@ See the complete [troubleshooting runbook](docs/08-troubleshooting-runbook.md).
 
 | # | Guide | Automation |
 |---|---|---|
-| 01 | [Azure VM deployment](docs/01-azure-vm-deployment.md) | [`install-nginx.sh`](infrastructure/scripts/install-nginx.sh) |
+| 01 | [Azure VM deployment](docs/01-azure-vm-deployment.md) | [`install-nginx.sh`](infrastructure/scripts/install-nginx.sh), [`nginx.conf`](infrastructure/nginx/nginx.conf) |
 | 02 | [Azure Compute Gallery image](docs/02-azure-vm-image.md) | [VM ARM template](infrastructure/arm/vm-template.json) |
 | 03 | [VM Scale Set and load balancer](docs/03-vm-scale-set-load-balancer.md) | [VMSS ARM template](infrastructure/arm/vmss-template.json), [`vmss-user-data.sh`](infrastructure/scripts/vmss-user-data.sh) |
 | 04 | [Load balancer and health probe](docs/04-load-balancer-health-probe.md) | — |
@@ -190,7 +192,8 @@ See the complete [troubleshooting runbook](docs/08-troubleshooting-runbook.md).
 ```text
 .
 ├── .github/workflows/
-│   └── validate.yml             # GitHub Actions repository validation
+│   ├── validate.yml             # GitHub Actions repository validation
+│   └── pages.yml                # Publishes website/ to GitHub Pages
 ├── architecture/                # Architecture diagram (SVG/PNG) and component notes
 ├── app-service/                 # PaaS deployment notes
 ├── docs/
@@ -199,8 +202,10 @@ See the complete [troubleshooting runbook](docs/08-troubleshooting-runbook.md).
 ├── infrastructure/
 │   ├── arm/                     # Sanitized ARM templates + example parameters
 │   ├── monitoring/              # Monitoring strategy and az monitor examples
+│   ├── nginx/                   # Nginx web server configuration
 │   └── scripts/                 # Bash automation (Nginx, VMSS bootstrap, App Service)
-└── security/                    # Security principles and production recommendations
+├── security/                    # Security principles and production recommendations
+└── website/                     # BallotOnline demo site (published to GitHub Pages)
 ```
 
 ---
