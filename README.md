@@ -98,6 +98,8 @@ The project was implemented through several cloud engineering phases:
 |---|---|---|
 | 01 | [Azure VM and Nginx deployment](docs/01-azure-vm-deployment.md) | [`install-nginx.sh`](infrastructure/scripts/install-nginx.sh) |
 | 02 | [Azure Compute Gallery and VM image](docs/02-azure-vm-image.md) | [ARM template](infrastructure/arm/vm-template.json) |
+| 03 | [VM Scale Set and load balancer](docs/03-vm-scale-set-load-balancer.md) | [VMSS ARM template](infrastructure/arm/vmss-template.json), [`vmss-user-data.sh`](infrastructure/scripts/vmss-user-data.sh) |
+| 04 | [Load balancer and health probe](docs/04-load-balancer-health-probe.md) | — |
 
 ---
 
