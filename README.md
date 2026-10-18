@@ -106,6 +106,7 @@ The project was implemented through several cloud engineering phases:
 | 08 | [Troubleshooting runbook](docs/08-troubleshooting-runbook.md) | — |
 | 09 | [Operational excellence](docs/09-operational-excellence.md) | — |
 | 10 | [Security and governance](docs/10-security-governance.md) | [`security/`](security/) |
+| 11 | [AWS vs. Azure comparison](docs/11-aws-vs-azure.md) | — |
 
 ---
 
@@ -189,6 +190,8 @@ only successful deployment paths.
 | Identity         | IAM                    | Microsoft Entra ID     |
 | Recommendations  | Trusted Advisor        | Azure Advisor          |
 | Monitoring       | CloudWatch             | Azure Monitor          |
+
+See the full [AWS vs. Azure comparison](docs/11-aws-vs-azure.md).
 
 ---
 
