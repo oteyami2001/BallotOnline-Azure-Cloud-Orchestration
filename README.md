@@ -26,48 +26,29 @@ multi-cloud strategy.
 
 ## Architecture
 
-### Azure IaaS Architecture
+![BallotOnline Azure cloud architecture](architecture/ballotonline-azure-architecture.svg)
 
-```text
-                         Internet
-                            |
-                            v
-                  +---------------------+
-                  | Azure Load Balancer |
-                  +----------+----------+
-                             |
-                             v
-                  +----------------------+
-                  | Azure VM Scale Set   |
-                  |                      |
-                  |  +------+  +------+  |
-                  |  | VM 1 |  | VM 2 |  |
-                  |  |Nginx |  |Nginx |  |
-                  |  +------+  +------+  |
-                  +----------+-----------+
-                             |
-                    Health Monitoring
-                             |
-                             v
-                       Azure Monitor
-```
+The proof of concept hosts the BallotOnline website on two Azure paths:
 
-### Azure PaaS Architecture
+**IaaS path: high availability on virtual machines**
 
-```text
-      Git Repository
-            |
-            | git push
-            v
-  +-----------------------+
-  | Azure App Service     |
-  |-----------------------|
-  | PHP Runtime           |
-  | Continuous Deployment |
-  | Autoscaling           |
-  | Monitoring            |
-  +-----------------------+
-```
+- An Ubuntu VM was configured with Nginx and the BallotOnline website.
+- That VM was captured as a reusable custom image in **Azure Compute Gallery**.
+- A **VM Scale Set** with two instances was deployed from that image.
+- An **Azure Load Balancer** (`CCS670LB`) spreads HTTP traffic across the
+  instances and checks their health on port 80.
+- **Azure Monitor** tracks instance health and metrics.
+
+**PaaS path: managed web hosting**
+
+- **Azure CLI** creates the App Service plan, the web app and the
+  deployment user.
+- The PHP site is deployed to **Azure App Service** with a `git push` to
+  its Git deployment remote.
+- App Service handles the runtime, scaling and monitoring, so there are
+  no servers to manage.
+
+See [`architecture/`](architecture/) for details on each component.
 
 ---
 
