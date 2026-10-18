@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1f3a"/>
+      <stop offset="1" stop-color="#0a3d7a"/>
+    </linearGradient>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7fc4ff"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect x="0" y="0" width="12" height="640" fill="#0078d4"/>
+
+  <!-- Text block -->
+  <text x="80" y="128" font-size="26" font-weight="600" fill="#7fc4ff" letter-spacing="6">BALLOTONLINE</text>
+  <text x="80" y="200" font-size="58" font-weight="800" fill="#ffffff">Azure Cloud</text>
+  <text x="80" y="268" font-size="58" font-weight="800" fill="#ffffff">Orchestration</text>
+  <text x="80" y="336" font-size="58" font-weight="800" fill="#ffffff">&amp; Automation</text>
+
+  <g font-size="19" font-weight="600" fill="#ffffff">
+    <rect x="80" y="380" width="78" height="38" rx="19" fill="#0078d4"/><text x="119" y="405" text-anchor="middle">IaaS</text>
+    <rect x="170" y="380" width="82" height="38" rx="19" fill="#0078d4"/><text x="211" y="405" text-anchor="middle">PaaS</text>
+    <rect x="264" y="380" width="88" height="38" rx="19" fill="#0078d4"/><text x="308" y="405" text-anchor="middle">VMSS</text>
+    <rect x="364" y="380" width="172" height="38" rx="19" fill="#0078d4"/><text x="450" y="405" text-anchor="middle">Load Balancing</text>
+    <rect x="80" y="430" width="140" height="38" rx="19" fill="#107c41"/><text x="150" y="455" text-anchor="middle">App Service</text>
+    <rect x="232" y="430" width="74" height="38" rx="19" fill="#5c2d91"/><text x="269" y="455" text-anchor="middle">IaC</text>
+    <rect x="318" y="430" width="100" height="38" rx="19" fill="#5c2d91"/><text x="368" y="455" text-anchor="middle">DevOps</text>
+  </g>
+
+  <text x="80" y="556" font-size="26" font-weight="700" fill="#ffffff">Thierry A. OTEYAMI</text>
+  <text x="80" y="590" font-size="20" fill="#a9c8ea">Cloud Engineer</text>
+
+  <!-- Simplified architecture -->
+  <g>
+    <rect x="760" y="70" width="440" height="500" rx="20" fill="#ffffff" fill-opacity="0.06" stroke="#7fc4ff" stroke-opacity="0.35"/>
+
+    <rect x="880" y="100" width="200" height="50" rx="25" fill="#ffffff"/>
+    <text x="980" y="132" text-anchor="middle" font-size="19" font-weight="700" fill="#0b1f3a">Internet</text>
+
+    <line x1="930" y1="150" x2="880" y2="203" stroke="#7fc4ff" stroke-width="3" marker-end="url(#a)"/>
+    <line x1="1030" y1="150" x2="1080" y2="203" stroke="#7fc4ff" stroke-width="3" marker-end="url(#a)"/>
+
+    <text x="880" y="196" text-anchor="end" font-size="15" font-weight="700" fill="#7fc4ff" letter-spacing="2">IaaS</text>
+    <text x="1080" y="196" font-size="15" font-weight="700" fill="#7fd6a4" letter-spacing="2">PaaS</text>
+
+    <rect x="790" y="208" width="190" height="56" rx="10" fill="#0078d4"/>
+    <text x="885" y="242" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">Load Balancer</text>
+
+    <rect x="1000" y="208" width="170" height="56" rx="10" fill="#107c41"/>
+    <text x="1085" y="242" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">App Service</text>
+
+    <line x1="850" y1="264" x2="836" y2="314" stroke="#7fc4ff" stroke-width="3" marker-end="url(#a)"/>
+    <line x1="920" y1="264" x2="934" y2="314" stroke="#7fc4ff" stroke-width="3" marker-end="url(#a)"/>
+
+    <rect x="790" y="318" width="190" height="130" rx="12" fill="none" stroke="#7fc4ff" stroke-width="2" stroke-dasharray="7 5"/>
+    <rect x="804" y="332" width="76" height="72" rx="8" fill="#ffffff"/>
+    <text x="842" y="364" text-anchor="middle" font-size="15" font-weight="700" fill="#0b1f3a">VM 1</text>
+    <text x="842" y="386" text-anchor="middle" font-size="13" fill="#3b4a5a">Nginx</text>
+    <rect x="890" y="332" width="76" height="72" rx="8" fill="#ffffff"/>
+    <text x="928" y="364" text-anchor="middle" font-size="15" font-weight="700" fill="#0b1f3a">VM 2</text>
+    <text x="928" y="386" text-anchor="middle" font-size="13" fill="#3b4a5a">Nginx</text>
+    <text x="885" y="434" text-anchor="middle" font-size="15" font-weight="700" fill="#7fc4ff">VM Scale Set</text>
+
+    <line x1="885" y1="500" x2="885" y2="452" stroke="#7fc4ff" stroke-width="3" marker-end="url(#a)"/>
+    <rect x="790" y="500" width="190" height="50" rx="10" fill="#ffffff" fill-opacity="0.12" stroke="#7fc4ff"/>
+    <text x="885" y="531" text-anchor="middle" font-size="16" font-weight="600" fill="#ffffff">Golden VM Image</text>
+
+    <line x1="1085" y1="380" x2="1085" y2="268" stroke="#7fd6a4" stroke-width="3" marker-end="url(#a)"/>
+    <rect x="1000" y="380" width="170" height="50" rx="10" fill="#ffffff" fill-opacity="0.12" stroke="#7fd6a4"/>
+    <text x="1085" y="411" text-anchor="middle" font-size="16" font-weight="600" fill="#ffffff">Git Push</text>
+    <line x1="1085" y1="500" x2="1085" y2="434" stroke="#7fd6a4" stroke-width="3" marker-end="url(#a)"/>
+    <rect x="1000" y="500" width="170" height="50" rx="10" fill="#ffffff" fill-opacity="0.12" stroke="#7fd6a4"/>
+    <text x="1085" y="531" text-anchor="middle" font-size="16" font-weight="600" fill="#ffffff">Azure CLI</text>
+  </g>
+</svg>
