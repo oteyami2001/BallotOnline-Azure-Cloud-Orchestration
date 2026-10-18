@@ -1,8 +1,52 @@
+# ------------------------------------------------------------
+# BallotOnline Azure Cloud Orchestration
+# ------------------------------------------------------------
+
 # Real ARM parameter values (copy from parameters.example.json)
 infrastructure/arm/parameters.json
 
-# Keys and local secrets
+# Secrets and environment variables
+.env
+.env.*
+*.secret
+*.secrets
+secrets/
+credentials/
+
+# SSH keys and certificates
 *.pem
 *.key
+*.pfx
+*.p12
 id_rsa*
-.env
+id_ed25519*
+
+# Azure CLI local state
+.azure/
+.azureProfile.json
+
+# App Service publish profiles (contain deployment passwords)
+publishProfile.xml
+*.PublishSettings
+*.publishsettings
+
+# Terraform (future expansion)
+# The .terraform.lock.hcl file should be committed, so it is not ignored.
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+
+# IDE
+.vscode/
+.idea/
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
